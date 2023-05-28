@@ -6,8 +6,7 @@ import (
 )
 
 func PostfixToPrefix(postfix string) (string, error) {
-	stack := make([]string, 0)
-
+	stack := []string{}
 	if postfix == "" {
 		return "", fmt.Errorf("invalid expression")
 	}
@@ -36,5 +35,10 @@ func PostfixToPrefix(postfix string) (string, error) {
 }
 
 func isOperator(token string) bool {
-	return token == "+" || token == "-" || token == "/" || token == "*" || token == "^"
+	switch token {
+	case "+", "-", "*", "/", "^":
+		return true
+	default:
+		return false
+	}
 }
