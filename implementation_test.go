@@ -7,7 +7,7 @@ import (
 	. "gopkg.in/check.v1"
 )
 
-func Test(t testing.T) {
+func Test(t *testing.T) {
 	TestingT(t)
 }
 
@@ -15,27 +15,27 @@ type mySuite struct{}
 
 var _ = Suite(&mySuite{})
 
-func (smySuite) TestEmpty(c C) {
+func (s *mySuite) TestEmpty(c *C) {
 	res, err := PostfixToPrefix("")
 	c.Assert(res, Equals, "")
 	c.Assert(err, ErrorMatches, "invalid expression")
 }
 
-func (smySuite) TestInvalid(c C) {
+func (s *mySuite) TestInvalid(c *C) {
 	res, err := PostfixToPrefix("2 +")
 	c.Assert(res, Equals, "")
 	c.Assert(err, ErrorMatches, "not enough operands")
 }
 
-func (smySuite) TestSimplePrefixExpression(c C) {
+func (s *mySuite) TestSimplePrefixExpression(c *C) {
 	res, err := PostfixToPrefix("9 3 /")
 	c.Assert(res, Equals, "/ 9 3")
 	c.Assert(err, IsNil)
 }
 
-func (smySuite) TestComplexPrefixExpression(c C) {
-	res, err := PostfixToPrefix("1 9 + 7 3 - 5 2 ^ + 8 4 / - 6 + ")
-	c.Assert(res, Equals, " + 1 - 9 + 7 3 - ^ 5 2 + / 8 4 6")
+func (s *mySuite) TestComplexPrefixExpression(c *C) {
+	res, err := PostfixToPrefix("7 12 4 - 2 * - 3 2 1 - ^ 2 * *")
+	c.Assert(res, Equals, "* - 7 * - 12 4 2 * ^ 3 - 2 1 2")
 	c.Assert(err, IsNil)
 }
 
