@@ -50,11 +50,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	handler := &lab2.ComputeHandler{
-		Input:  input,
-		Output: output,
-	}
-
+	handler := &lab2.ComputeHandler(input, output)
 	err := handler.Compute()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Error to compute expression:", err)
