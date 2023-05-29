@@ -2,8 +2,9 @@ package lab2
 
 import (
 	"bytes"
-	. "gopkg.in/check.v1"
 	"strings"
+
+	. "gopkg.in/check.v1"
 )
 
 type ComputeHandlerSuite struct{}
@@ -15,8 +16,8 @@ func (s *ComputeHandlerSuite) Test1(c *C) {
 	output := bytes.NewBuffer(nil)
 
 	ch := &ComputeHandler{
-		input:  input,
-		output: output,
+		Input:  input,
+		Output: output,
 	}
 
 	err := ch.Compute()
@@ -31,8 +32,8 @@ func (s *ComputeHandlerSuite) Test2(c *C) {
 	output := bytes.NewBuffer(nil)
 
 	ch := &ComputeHandler{
-		input:  input,
-		output: output,
+		Input:  input,
+		Output: output,
 	}
 
 	err := ch.Compute()
