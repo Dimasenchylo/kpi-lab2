@@ -21,7 +21,7 @@ func main() {
 	flag.Parse()
 
 	var input io.Reader
-	var output io.Writer = os.Stdout
+	var output io.Writer
 
 	if *inputExpression != "" {
 		input = strings.NewReader(*inputExpression)
