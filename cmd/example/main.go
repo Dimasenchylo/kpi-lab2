@@ -43,6 +43,8 @@ func main() {
 		}
 		defer file.Close()
 		output = file
+	} else {
+		output = os.Stdout
 	}
 
 	if input == nil {
@@ -50,7 +52,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	handler := &lab2.ComputeHandler(input, output)
+	handler := lab2.NComputeHandler(input, output)
 
 	err := handler.Compute()
 	if err != nil {
