@@ -6,12 +6,12 @@ import (
 )
 
 type ComputeHandler struct {
-	input  io.Reader
-	output io.Writer
+	Input  io.Reader
+	Output io.Writer
 }
 
 func (ch *ComputeHandler) Compute() error {
-	inputBuffer, err := io.ReadAll(ch.input)
+	inputBuffer, err := io.ReadAll(ch.Input)
 
 	if err != nil {
 		return err
@@ -24,7 +24,7 @@ func (ch *ComputeHandler) Compute() error {
 		return err
 	}
 
-	_, err = ch.output.Write([]byte(prefixExpression))
+	_, err = ch.Output.Write([]byte(prefixExpression))
 	if err != nil {
 		return err
 	}
