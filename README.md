@@ -20,19 +20,19 @@ go run cmd/example/main.go
 3. To input from terminal
 
 ```
-go run main.go -e="9 3 /"
+go run cmd/example/main.go -e="9 3 /"
 ```
 
 4. To read from file
 
 ```
-go run main.go -f="file.txt"
+go run cmd/example/main.go -f="file.txt"
 ```
 
 5. To input results into file
 
 ```
-go run main.go -e=""9 3 /" -o="result.txt"
+go run cmd/example/main.go -e="9 3 /" -o="result.txt"
 ```
 
 6. To test
